@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class IA{
     private Tateti t;
     private String token;
