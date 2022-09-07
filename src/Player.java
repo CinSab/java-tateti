@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Player {
     private String token;
-    public String name;
+    private String name;
     private Tateti t;
 
     Player(String token, String name, Tateti t){
@@ -9,6 +9,8 @@ public class Player {
         this.token = token;
         this.t = t;
     }
+    
+    public String getName() {return name;}
 
     public void play(){
         Scanner sc = new Scanner(System.in);
@@ -29,15 +31,19 @@ public class Player {
             case 8: x=2;y=1;break;
             case 9: x=2;y=2;break;
 
-            default: System.out.println("Wrong value.");
+            default: System.out.println("Wrong value, try again");
         }
-        if(t.putToken(x,y,token) == false){
-            if(t.isFull()){
-                System.out.println("Place already taken, try again");
-                play();
+      if(intPut != 0) {
+            if (!t.putToken(x, y, token)) {
+                if (t.isFull()) {
+                    System.out.println("Place already taken, try again");
+                    play();
+                }
+            } else {
+                t.showTateti();
             }
-        }else{
-           t.showTateti();
+        }else {
+            play();
         }
     }
 }
