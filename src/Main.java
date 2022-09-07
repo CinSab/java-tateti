@@ -11,7 +11,7 @@ public class Main {
         Player p1 = new Player("X", name, play);
         IA ai = new IA(play);
 
-        while (play.winner() == false ) {
+        while (!play.winner()) {
             if(play.isFull()){
                 p1.play();
                 if(!play.winner()){
@@ -21,7 +21,7 @@ public class Main {
                         System.out.println("The winner is: IA");
                     }
                 }else{
-                    System.out.println("The winner is: " + p1.name);
+                    System.out.println("The winner is: " + p1.getName());
                 }
             }else{
                 System.out.println("Tie.");
